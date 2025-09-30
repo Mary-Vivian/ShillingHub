@@ -30,7 +30,9 @@ const LandingPage = () => {
       >
         <h1 style={styles.title}>Welcome to ShillingHub</h1>
         <p style={styles.subtitle}>
-          Africa's First Privacy-First AI-Powered Financial Platform
+          Africa's First Privacy-First AI-Powered Financial Platform 
+          that combines blockchain technology, zero-knowledge proofs,
+          and artificial intelligence to create a revolutionary financial experience in Kenya.
         </p>
         <button
           style={styles.button}
@@ -61,12 +63,12 @@ const styles = {
     width: "100%",
     height: "100%",
     backgroundImage:
-      "url('https://img.freepik.com/free-vector/flat-design-cryptocurrency-concept_23-2149166905.jpg')",
+      "url('https://images.unsplash.com/photo-1667808931942-d766e3b2ca8e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTkxfHxjcnlwdG9jdXJyZW5jeSUyMGltYWdlcyUyMHRoYXQlMjBoYXZlJTIwY29pbnN8ZW58MHx8MHx8fDA%3D')",
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
-    filter: "blur(5px)", // Blurs the background
-    transform: "scale(1.1)", // Slightly zoom in to hide blur edges
+    filter: "blur(5px)", 
+    transform: "scale(1.1)", 
     zIndex: 0,
   },
   overlay: {
@@ -93,6 +95,7 @@ const styles = {
     fontSize: "1.5rem",
     maxWidth: "600px",
     margin: "0 auto 30px",
+    marginBottom:"54px",
     lineHeight: "1.5",
   },
   button: {

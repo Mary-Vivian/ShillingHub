@@ -1,3 +1,4 @@
+import { TextAlignCenter } from "lucide-react";
 import React from "react";
 
 const MarketSection = () => {
@@ -15,8 +16,10 @@ const MarketSection = () => {
   const headingStyle = {
     fontSize: "40px",
     fontWeight: "bold",
-    marginBottom: "32px",
+    marginBottom: "36px",
     color: "#fff",
+    textAlign: "center",
+    marginRight:"108px"
   };
 
   const purpleTextStyle = {
@@ -72,7 +75,7 @@ const MarketSection = () => {
   };
 
   const cardContainerStyle = {
-    background: "rgba(30,41,59,0.5)",
+    background: "#151f31",
     backdropFilter: "blur(6px)",
     borderRadius: "16px",
     padding: "32px",
@@ -95,21 +98,21 @@ const MarketSection = () => {
   };
 
   const listHeadingPurple = {
-    color: "#a78bfa",
+    color: "#4adc76",
     fontSize: "18px",
     fontWeight: "600",
     marginBottom: "12px",
   };
 
   const listHeadingCyan = {
-    color: "#22d3ee",
+    color: "#4adc76",
     fontSize: "18px",
     fontWeight: "600",
     marginBottom: "12px",
   };
 
   const listStyle = {
-    color: "#d1d5db",
+    color: "#fff",
     fontSize: "16px",
     lineHeight: "1.6",
     listStyle: "none",

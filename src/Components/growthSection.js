@@ -136,19 +136,19 @@ const GrowthSection = () => {
               <div style={visionGridStyle}>
                 <div>
                   <div style={{ fontSize: "20px", fontWeight: "bold", color: "#a78bfa" }}>100M+</div>
-                  <div style={{ fontSize: "14px", color: "#d1d5db" }}>Users</div>
+                  <div style={{ fontSize: "14px", color: "#f2f4f8ff" }}>Users</div>
                 </div>
                 <div>
                   <div style={{ fontSize: "20px", fontWeight: "bold", color: "#22d3ee" }}>$50B+</div>
-                  <div style={{ fontSize: "14px", color: "#d1d5db" }}>Volume</div>
+                  <div style={{ fontSize: "14px", color: "#f2f4f8ff" }}>Volume</div>
                 </div>
                 <div>
                   <div style={{ fontSize: "20px", fontWeight: "bold", color: "#ec4899" }}>$500M+</div>
-                  <div style={{ fontSize: "14px", color: "#d1d5db" }}>Revenue</div>
+                  <div style={{ fontSize: "14px", color: "#f2f4f8ff" }}>Revenue</div>
                 </div>
                 <div>
                   <div style={{ fontSize: "20px", fontWeight: "bold", color: "#4ade80" }}>20+</div>
-                  <div style={{ fontSize: "14px", color: "#d1d5db" }}>Countries</div>
+                  <div style={{ fontSize: "14px", color: "#f2f4f8ff" }}>Countries</div>
                 </div>
               </div>
             </div>

@@ -1,150 +1,259 @@
 import React from "react";
+import { FaInstagram, FaTwitter, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 
-const CTAFooter = () => {
-  const sectionStyle = {
-    padding: "80px 24px",
-    textAlign: "center",
-  };
-
-  const headingStyle = {
-    fontSize: "40px",
-    fontWeight: "bold",
-    marginBottom: "24px",
-    color: "#fff",
-  };
-
-  const gradientTextStyle = {
-    display: "block",
-    background: "linear-gradient(to right, #a78bfa, #f472b6, #22d3ee)",
-    WebkitBackgroundClip: "text",
-    color: "transparent",
-  };
-
-  const paragraphStyle = {
-    fontSize: "20px",
-    color: "#6f83a1ff",
-    marginBottom: "48px",
-    maxWidth: "700px",
-    marginLeft: "auto",
-    marginRight: "auto",
-    lineHeight: "1.6",
-  };
-
-  const buttonContainerStyle = {
-    display: "flex",
-    flexDirection: "column",
-    gap: "16px",
-    justifyContent: "center",
-    alignItems: "center",
-  };
-
-  const primaryButtonStyle = {
-    background: "linear-gradient(to right, #9333ea, #ec4899)",
-    padding: "16px 32px",
-    borderRadius: "9999px",
-    fontSize: "18px",
-    fontWeight: "600",
-    color: "#fff",
-    border: "none",
-    cursor: "pointer",
-    transition: "all 0.3s ease",
-  };
-
-  const secondaryButtonStyle = {
-    border: "1px solid #22d3ee",
-    color: "#22d3ee",
-    padding: "16px 32px",
-    borderRadius: "9999px",
-    fontSize: "18px",
-    fontWeight: "600",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    transition: "all 0.3s ease",
-  };
-
-  const footerStyle = {
-    padding: "48px 24px",
-    borderTop: "1px solid #334155",
-    textAlign: "center",
-    marginTop: "40px",
-  };
-
-  const footerTitleStyle = {
-    fontSize: "28px",
-    fontWeight: "bold",
-    marginBottom: "16px",
-    background: "linear-gradient(to right, #a78bfa, #22d3ee)",
-    WebkitBackgroundClip: "text",
-    color: "transparent",
-  };
-
-  const footerTextStyle = {
-    color: "#9ca3af",
-    marginBottom: "24px",
-    fontSize: "14px",
-  };
-
-  const footerTagsStyle = {
-    display: "flex",
-    justifyContent: "center",
-    gap: "24px",
-    color: "#6b7280",
-    fontSize: "14px",
-  };
-
+const CombinedContactsCTA = () => {
   return (
-    <>
-      {/* CTA Section */}
-      <section style={sectionStyle}>
-        <div style={{ maxWidth: "640px", margin: "0 auto" }}>
-          <h2 style={headingStyle}>
-            The Future of African Finance is{" "}
-            <span style={gradientTextStyle}>Here</span>
-          </h2>
+    <section
+      id="cta"  
+      style={{
+        backgroundColor: "#172133",
+        color: "white",
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "center",
+        alignItems: "flex-start",
+        padding: "80px 24px",
+        gap: "60px",
+      }}
+    >
+      {/* Left: Contact Form + Social Links */}
+      <div style={{ flex: "1 1 400px", maxWidth: "500px" }}>
+        <h2
+          style={{
+            fontSize: "32px",
+            marginBottom: "24px",
+            textAlign: "center",
+          }}
+        >
+          Get in Touch
+        </h2>
 
-          <p style={paragraphStyle}>
-            ShillingHub represents a once-in-a-generation opportunity to transform
-            how 1.3 billion Africans interact with money. Join us in building the
-            financial infrastructure for Africa's digital future.
-          </p>
-
-          <div style={buttonContainerStyle}>
-            <button
-              style={primaryButtonStyle}
-              onMouseOver={(e) => (e.target.style.transform = "scale(1.05)")}
-              onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
-            >
-              Join the Revolution
-            </button>
-            <button
-              style={secondaryButtonStyle}
-              onMouseOver={(e) => (e.target.style.backgroundColor = "rgba(34,211,238,0.1)")}
-              onMouseOut={(e) => (e.target.style.backgroundColor = "transparent")}
-            >
-              Learn More
-            </button>
-          </div>
+        {/* Social Links */}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            gap: "20px",
+            marginBottom: "40px",
+          }}
+        >
+          <a
+            href="https://instagram.com/yourprofile"
+            target="_blank"
+            rel="noreferrer"
+            style={socialLinkStyle}
+          >
+            <FaInstagram size={28} />
+          </a>
+          <a
+            href="https://twitter.com/yourprofile"
+            target="_blank"
+            rel="noreferrer"
+            style={socialLinkStyle}
+          >
+            <FaTwitter size={28} />
+          </a>
+          <a
+            href="https://wa.me/2547XXXXXXXX"
+            target="_blank"
+            rel="noreferrer"
+            style={socialLinkStyle}
+          >
+            <FaWhatsapp size={28} />
+          </a>
+          <a href="mailto:your@email.com" style={socialLinkStyle}>
+            <FaEnvelope size={28} />
+          </a>
         </div>
-      </section>
 
-      {/* Footer */}
-      <footer style={footerStyle}>
-        <div style={{ maxWidth: "1120px", margin: "0 auto" }}>
-          <div style={footerTitleStyle}>ShillingHub</div>
-          <p style={footerTextStyle}>
+        {/* Contact Form */}
+        <form
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "16px",
+          }}
+        >
+          <input type="text" placeholder="Full Name" style={inputStyle} required />
+          <input type="email" placeholder="Email" style={inputStyle} required />
+          <textarea
+            placeholder="Type your message..."
+            rows="5"
+            style={inputStyle}
+            required
+          />
+          <button type="submit" style={buttonStyle}>
+            Send Message
+          </button>
+        </form>
+      </div>
+
+      {/* Right: CTA + Footer */}
+      <div
+        style={{
+          flex: "1 1 400px",
+          maxWidth: "500px",
+          textAlign: "center",
+        }}
+      >
+        <h2
+          style={{
+            fontSize: "40px",
+            fontWeight: "bold",
+            marginBottom: "24px",
+          }}
+        >
+          The Future of African Finance is{" "}
+          <span
+            style={{
+              background: "linear-gradient(to right, #a78bfa, #f472b6, #22d3ee)",
+              WebkitBackgroundClip: "text",
+              color: "transparent",
+            }}
+          >
+            Here
+          </span>
+        </h2>
+
+        <p
+          style={{
+            fontSize: "18px",
+            color: "#9ca3af",
+            marginBottom: "32px",
+            lineHeight: "1.6",
+          }}
+        >
+          ShillingHub represents a once-in-a-generation opportunity to transform
+          how 1.3 billion Africans interact with money. Join us in building the
+          financial infrastructure for Africa's digital future.
+        </p>
+
+        {/* Buttons */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "16px",
+            alignItems: "center",
+          }}
+        >
+          <button
+            style={primaryButtonStyle}
+            onMouseOver={(e) => (e.target.style.transform = "scale(1.05)")}
+            onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+          >
+            Join the Revolution
+          </button>
+          <button
+            style={secondaryButtonStyle}
+            onMouseOver={(e) =>
+              (e.target.style.backgroundColor = "rgba(34,211,238,0.1)")
+            }
+            onMouseOut={(e) =>
+              (e.target.style.backgroundColor = "transparent")
+            }
+          >
+            Learn More
+          </button>
+        </div>
+
+        {/* Mini footer */}
+        <div
+          style={{
+            marginTop: "40px",
+            borderTop: "1px solid #334155",
+            paddingTop: "20px",
+          }}
+        >
+          <div
+            style={{
+              fontSize: "24px",
+              fontWeight: "bold",
+              marginBottom: "12px",
+              background: "linear-gradient(to right, #a78bfa, #22d3ee)",
+              WebkitBackgroundClip: "text",
+              color: "transparent",
+            }}
+          >
+            ShillingHub
+          </div>
+          <p
+            style={{
+              color: "#9ca3af",
+              fontSize: "14px",
+              marginBottom: "16px",
+            }}
+          >
             Building Kenya's First AI-Powered Zero-Knowledge Privacy Financial
             Platform
           </p>
-          <div style={footerTagsStyle}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              gap: "16px",
+              color: "#6b7280",
+              fontSize: "14px",
+            }}
+          >
             <span>Privacy-First</span>
             <span>AI-Powered</span>
             <span>DeFi-Integrated</span>
             <span>Africa-Focused</span>
           </div>
         </div>
-      </footer>
-    </>
+      </div>
+    </section>
   );
 };
 
-export default CTAFooter;
+const socialLinkStyle = {
+  color: "white",
+  textDecoration: "none",
+  transition: "0.3s",
+};
+
+const inputStyle = {
+  padding: "12px",
+  borderRadius: "8px",
+  border: "1px solid #334155",
+  backgroundColor: "#0f172a",
+  color: "white",
+  fontSize: "16px",
+};
+
+const buttonStyle = {
+  padding: "12px",
+  backgroundColor: "#3b82f6",
+  border: "none",
+  borderRadius: "8px",
+  color: "white",
+  fontSize: "16px",
+  cursor: "pointer",
+};
+
+const primaryButtonStyle = {
+  background: "linear-gradient(to right, #9333ea, #ec4899)",
+  padding: "14px 28px",
+  borderRadius: "9999px",
+  fontSize: "16px",
+  fontWeight: "600",
+  color: "#fff",
+  border: "none",
+  cursor: "pointer",
+  transition: "all 0.3s ease",
+};
+
+const secondaryButtonStyle = {
+  border: "1px solid #22d3ee",
+  color: "#22d3ee",
+  padding: "14px 28px",
+  borderRadius: "9999px",
+  fontSize: "16px",
+  fontWeight: "600",
+  backgroundColor: "transparent",
+  cursor: "pointer",
+  transition: "all 0.3s ease",
+};
+
+export default CombinedContactsCTA;

@@ -1,101 +1,118 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import React, { useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const scrollToSection = (sectionId) => {
-    document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
-    setIsMenuOpen(false);
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+    setIsMenuOpen(false); // close menu on click (for mobile)
+  };
+
+  const linkStyle = {
+    cursor: "pointer",
+    fontWeight: "500",
+    color: "#fff",
+    textDecoration: "none",
   };
 
   return (
-<nav
-  style={{
-    position: 'fixed',
-    top: 0,
-    width: '100%',
-    zIndex: 50,
-    transition: 'all 0.3s ease',
-    backgroundColor: 'rgba(135, 153, 196, 0.95)', // Always visible color
-    backdropFilter: 'blur(6px)',
-    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)',
-  }}
->
+    <nav
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        background: "#172133",
+        color: "#fff",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "1rem 2rem",
+        zIndex: 1000,
+      }}
+    >
+      {/* Logo */}
+      <div style={{ fontSize: "22px", fontWeight: "bold" }}>ShillingHub</div>
 
+      {/* Right side: Links + Hamburger */}
       <div
         style={{
-          maxWidth: '1280px',
-          margin: '0 auto',
-          padding: '1rem 1.5rem',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
+          display: "flex",
+          alignItems: "center",
+          gap: "50px", // controls space between links and hamburger
         }}
       >
-        {/* Logo */}
-        <div style={{ color: 'blue', fontSize: '1.5rem', fontWeight: 'bold', }}>
-          ShillingHub
+        {/* Desktop Menu */}
+        <div
+          style={{
+            display: "flex",
+            gap: "40px",
+          }}
+          className="desktop-menu"
+        >
+          <a onClick={() => scrollToSection("features")} style={linkStyle}>
+            Features
+          </a>
+          <a onClick={() => scrollToSection("solution")} style={linkStyle}>
+            Solution
+          </a>
+          <a onClick={() => scrollToSection("market")} style={linkStyle}>
+            Market
+          </a>
+          <a onClick={() => scrollToSection("growth")} style={linkStyle}>
+            Growth
+          </a>
+          <a onClick={() => scrollToSection("cta")} style={linkStyle}>
+            Contacts
+          </a>
         </div>
 
-        {/* Desktop Menu */}
-       <div
-        style={{
-         display: 'flex',   // <-- Make it a flex container
-        gap: '16px',       // <-- Space between links (adjust as needed)
-        }}
-      className="desktop-menu"
-    >
-     <a onClick={() => scrollToSection('features')} style={linkStyle}>Features</a>
-     <a onClick={() => scrollToSection('solution')} style={linkStyle}>Solution</a>
-     <a onClick={() => scrollToSection('market')} style={linkStyle}>Market</a>
-     <a onClick={() => scrollToSection('growth')} style={linkStyle}>Growth</a>
-    </div>
-
-
-        {/* Mobile Menu Button */}
-        <button
+        {/* Hamburger (Mobile) */}
+        <div
+          style={{ cursor: "pointer", fontSize: "22px" }}
+          className="hamburger"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          style={{ background: 'none', border: 'none', cursor: 'pointer' }}
         >
-          {isMenuOpen ? <X size={24} color="white" /> : <Menu size={24} color="white" />}
-        </button>
+          {isMenuOpen ? <FaTimes /> : <FaBars />}
+        </div>
       </div>
 
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div
           style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '1rem',
-            padding: '1rem',
-            borderTop: '1px solid #1d519bff',
+            display: "flex",
+            flexDirection: "column",
+            gap: "1rem",
+            padding: "1rem",
+            borderTop: "1px solid #1d519bff",
+            backgroundColor: "rgba(23, 33, 51, 0.95)",
+            position: "absolute",
+            top: "100%",
+            left: 0,
+            right: 0,
           }}
         >
-          <a onClick={() => scrollToSection('features')} style={linkStyle}>Features</a>
-          <a onClick={() => scrollToSection('solution')} style={linkStyle}>Solution</a>
-          <a onClick={() => scrollToSection('market')} style={linkStyle}>Market</a>
-          <a onClick={() => scrollToSection('growth')} style={linkStyle}>Growth</a>
+          <a onClick={() => scrollToSection("features")} style={linkStyle}>
+            Features
+          </a>
+          <a onClick={() => scrollToSection("solution")} style={linkStyle}>
+            Solution
+          </a>
+          <a onClick={() => scrollToSection("market")} style={linkStyle}>
+            Market
+          </a>
+          <a onClick={() => scrollToSection("growth")} style={linkStyle}>
+            Growth
+          </a>
+          <a onClick={() => scrollToSection("cta")} style={linkStyle}>
+            Contacts
+          </a>
         </div>
       )}
     </nav>
   );
-};
-
-const linkStyle = {
-  cursor: 'pointer',
-  color: 'white',
-  textDecoration: 'none',
-  transition: 'color 0.3s',
-  fontSize: '1rem',
 };
 
 export default Navbar;
