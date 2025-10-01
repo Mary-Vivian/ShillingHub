@@ -49,7 +49,7 @@ const GrowthSection = () => {
   };
 
   const phaseCardStyle = (color) => ({
-    backgroundColor: "rgba(15,23,42,0.5)",
+    backgroundColor: "#151f31",
     padding: "16px",
     borderRadius: "8px",
     border: `1px solid ${color}`,
@@ -57,7 +57,7 @@ const GrowthSection = () => {
   });
 
   const visionCardStyle = {
-    background: "linear-gradient(to bottom right, rgba(147,51,234,0.2), rgba(6,182,212,0.2))",
+    background: "#151f31",
     padding: "24px",
     borderRadius: "12px",
     border: "1px solid rgba(147,51,234,0.3)",

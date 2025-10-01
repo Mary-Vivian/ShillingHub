@@ -77,7 +77,7 @@ const styles = {
     left: 0,
     width: "100%",
     height: "100%",
-    backgroundColor: "rgba(0, 0, 0, 0.3)", // Dark overlay for contrast
+    backgroundColor: "rgba(0, 0, 0, 0.3)", 
     zIndex: 1,
   },
   content: {

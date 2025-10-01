@@ -24,7 +24,7 @@ const SolutionSection = () => {
   };
 
   const problemHeadingStyle = {
-    color: '#f87171',
+    color: '#000',
   };
 
   const solutionHeadingStyle = {
@@ -39,7 +39,7 @@ const SolutionSection = () => {
   };
 
   const cardStyle = (borderColor) => ({
-    backgroundColor: 'rgba(210, 217, 235, 0.5)',
+    backgroundColor: '#151f31',
     padding: '24px',
     borderRadius: '12px',
     border: `1px solid ${borderColor}`,
@@ -53,7 +53,7 @@ const SolutionSection = () => {
   });
 
   const textStyle = {
-    color: '#000000',
+    color: '#fff',
   };
 
   const arrowStyle = {
@@ -73,7 +73,7 @@ const SolutionSection = () => {
           {/* Pair 1 */}
           <div style={pairContainerStyle}>
             <div style={cardStyle('rgba(248, 113, 113, 0.3)')}>
-              <h4 style={cardHeadingStyle('#f87171')}>High Variable Fees</h4>
+              <h4 style={cardHeadingStyle('#4ade80')}>High Variable Fees</h4>
               <p style={textStyle}>
                 M-PESA fees range from 0% to 11%+. KES 50 withdrawal costs KES 11 (22% fee rate)
               </p>
@@ -88,7 +88,7 @@ const SolutionSection = () => {
           {/* Pair 2 */}
           <div style={pairContainerStyle}>
             <div style={cardStyle('rgba(248, 113, 113, 0.3)')}>
-              <h4 style={cardHeadingStyle('#f87171')}>Privacy Violations</h4>
+              <h4 style={cardHeadingStyle('#4ade80')}>Privacy Violations</h4>
               <p style={textStyle}>
                 Merchants share client data with third parties. Full exposure of names and phone numbers
               </p>
@@ -105,7 +105,7 @@ const SolutionSection = () => {
           {/* Pair 3 */}
           <div style={pairContainerStyle}>
             <div style={cardStyle('rgba(248, 113, 113, 0.3)')}>
-              <h4 style={cardHeadingStyle('#f87171')}>Zero DeFi Access</h4>
+              <h4 style={cardHeadingStyle('#4ade80')}>Zero DeFi Access</h4>
               <p style={textStyle}>
                 Closed ecosystem with no blockchain integration or access to 25-40% DeFi yields
               </p>

@@ -30,7 +30,7 @@ const FeaturesSection = () => {
             gap: 62px;
           }
           .feature-card {
-            background: rgba(204, 182, 197, 0.5);
+            background: #172134;
             border: 1px solid rgba(51, 65, 85, 1);
             padding: 32px;
             border-radius: 16px;
@@ -44,7 +44,7 @@ const FeaturesSection = () => {
             width: 48px;
             height: 48px;
             margin-bottom: 24px;
-            color: #a855f7;
+            color: #fff;
             transition: transform 0.3s ease;
           }
           .feature-card:hover .feature-icon {
@@ -54,9 +54,10 @@ const FeaturesSection = () => {
             font-size: 1.5rem;
             font-weight: bold;
             margin-bottom: 16px;
+            color:#4ade80;
           }
           .feature-text {
-            color: #1d519eff;
+            color: white;
             margin-bottom: 16px;
             line-height: 1.6;
           }

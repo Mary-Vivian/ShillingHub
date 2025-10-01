@@ -60,11 +60,10 @@ const HeroSection = () => {
 
           .hero-title .gradient-text {
             display: block;
-            background: linear-gradient(to right, #a855f7, #ec4899, #06b6d4);
+            background: linear-gradient(to right, #0f011bff, #105f55ff, #06b6d4);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
           }
-
           .hero-subtitle {
             font-size: 1.25rem;
             color: #163381ff;
@@ -101,7 +100,7 @@ const HeroSection = () => {
             flex: 1;
             min-width: 280px;
             min-height: 80px;
-            background: rgba(193, 203, 218, 0.5);
+            background: #151f31;
             border-radius: 12px;
             padding: 24px;
             border: 1px solid rgba(148, 163, 184, 0.3);

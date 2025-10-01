@@ -23,7 +23,7 @@ const MarketSection = () => {
   };
 
   const purpleTextStyle = {
-    color: "#a78bfa",
+    color: "#000",
   };
 
   const gridStyle = {
@@ -42,19 +42,19 @@ const MarketSection = () => {
 
   const purpleCard = {
     ...cardBaseStyle,
-    background: "linear-gradient(to bottom right, rgba(147,51,234,0.2), rgba(88,28,135,0.2))",
+    background: "#151f31",
     borderColor: "rgba(168,85,247,0.3)",
   };
 
   const cyanCard = {
     ...cardBaseStyle,
-    background: "linear-gradient(to bottom right, rgba(6,182,212,0.2), rgba(22,78,99,0.2))",
+    background: "#151f31",
     borderColor: "rgba(6,182,212,0.3)",
   };
 
   const pinkCard = {
     ...cardBaseStyle,
-    background: "linear-gradient(to bottom right, rgba(236,72,153,0.2), rgba(131,24,67,0.2))",
+    background: "#151f31",
     borderColor: "rgba(236,72,153,0.3)",
   };
 
