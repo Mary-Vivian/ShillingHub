@@ -57,12 +57,12 @@ const Navbar = () => {
           <a onClick={() => scrollToSection("solution")} style={linkStyle}>
             Solution
           </a>
-          <a onClick={() => scrollToSection("market")} style={linkStyle}>
+          {/* <a onClick={() => scrollToSection("market")} style={linkStyle}>
             Market
           </a>
           <a onClick={() => scrollToSection("growth")} style={linkStyle}>
             Growth
-          </a>
+          </a> */}
           <a onClick={() => scrollToSection("cta")} style={linkStyle}>
             Contacts
           </a>
