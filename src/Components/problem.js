@@ -74,14 +74,14 @@ const SolutionSection = () => {
           <div style={pairContainerStyle}>
             <div style={cardStyle('rgba(248, 113, 113, 0.3)')}>
               <h4 style={cardHeadingStyle('#4ade80')}>High Variable Fees</h4>
-              <p style={textStyle}>
+              {/* <p style={textStyle}>
                 M-PESA fees range from 0% to 11%+. KES 50 withdrawal costs KES 11 (22% fee rate)
-              </p>
+              </p> */}
             </div>
             <div style={arrowStyle}>➡</div>
             <div style={cardStyle('rgba(74, 222, 128, 0.3)')}>
               <h4 style={cardHeadingStyle('#4ade80')}>Fixed Low Fees</h4>
-              <p style={textStyle}>Transparent 1-1.5% flat transaction fees with no hidden costs</p>
+              {/* <p style={textStyle}>Transparent 1-1.5% flat transaction fees with no hidden costs</p> */}
             </div>
           </div>
 
@@ -89,16 +89,16 @@ const SolutionSection = () => {
           <div style={pairContainerStyle}>
             <div style={cardStyle('rgba(248, 113, 113, 0.3)')}>
               <h4 style={cardHeadingStyle('#4ade80')}>Privacy Violations</h4>
-              <p style={textStyle}>
+              {/* <p style={textStyle}>
                 Merchants share client data with third parties. Full exposure of names and phone numbers
-              </p>
+              </p> */}
             </div>
             <div style={arrowStyle}>➡</div>
             <div style={cardStyle('rgba(74, 222, 128, 0.3)')}>
               <h4 style={cardHeadingStyle('#4ade80')}>Zero-Knowledge Privacy</h4>
-              <p style={textStyle}>
+              {/* <p style={textStyle}>
                 Complete transaction privacy with regulatory compliance through selective disclosure
-              </p>
+              </p> */}
             </div>
           </div>
 
@@ -106,16 +106,16 @@ const SolutionSection = () => {
           <div style={pairContainerStyle}>
             <div style={cardStyle('rgba(248, 113, 113, 0.3)')}>
               <h4 style={cardHeadingStyle('#4ade80')}>Zero DeFi Access</h4>
-              <p style={textStyle}>
+              {/* <p style={textStyle}>
                 Closed ecosystem with no blockchain integration or access to 25-40% DeFi yields
-              </p>
+              </p> */}
             </div>
             <div style={arrowStyle}>➡</div>
             <div style={cardStyle('rgba(74, 222, 128, 0.3)')}>
               <h4 style={cardHeadingStyle('#4ade80')}>AI-Optimized DeFi</h4>
-              <p style={textStyle}>
+              {/* <p style={textStyle}>
                 Automated yield optimization delivering 25-40% APY through intelligent portfolio management
-              </p>
+              </p> */}
             </div>
           </div>
         </div>
