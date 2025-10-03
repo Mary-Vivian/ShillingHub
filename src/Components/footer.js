@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaInstagram, FaTwitter, FaWhatsapp, FaEnvelope } from "react-icons/fa";
+import FeedbackTool from "./feedback"; 
 
 const CombinedContactsCTA = () => {
+  const [showFeedback, setShowFeedback] = useState(false);
+
   return (
     <section
-      id="cta"  
+      id="cta"
       style={{
         backgroundColor: "#172133",
         color: "white",
@@ -14,6 +17,7 @@ const CombinedContactsCTA = () => {
         alignItems: "flex-start",
         padding: "80px 24px",
         gap: "60px",
+        position: "relative",
       }}
     >
       {/* Left: Contact Form + Social Links */}
@@ -137,23 +141,39 @@ const CombinedContactsCTA = () => {
             alignItems: "center",
           }}
         >
-          <button
+          {/* <button
             style={primaryButtonStyle}
             onMouseOver={(e) => (e.target.style.transform = "scale(1.05)")}
             onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
           >
             Join the Revolution
-          </button>
-          <button
+          </button> */}
+          {/* <button
             style={secondaryButtonStyle}
             onMouseOver={(e) =>
               (e.target.style.backgroundColor = "rgba(34,211,238,0.1)")
             }
-            onMouseOut={(e) =>
-              (e.target.style.backgroundColor = "transparent")
-            }
+            onMouseOut={(e) => (e.target.style.backgroundColor = "transparent")}
           >
             Learn More
+          </button> */}
+
+          {/* Feedback Button */}
+          <button
+            style={{
+              marginTop: "12px",
+              border: "1px solid #9333ea",
+              color: "#9333ea",
+              padding: "14px 28px",
+              borderRadius: "9999px",
+              fontSize: "16px",
+              fontWeight: "600",
+              backgroundColor: "transparent",
+              cursor: "pointer",
+            }}
+            onClick={() => setShowFeedback(true)}
+          >
+            Give Feedback
           </button>
         </div>
 
@@ -203,6 +223,46 @@ const CombinedContactsCTA = () => {
           </div>
         </div>
       </div>
+
+      {/* Popup Modal */}
+      {showFeedback && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            background: "rgba(0,0,0,0.7)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 1000,
+            overflowY: "auto",
+            padding: "20px",
+          }}
+        >
+          <div style={{ position: "relative" }}>
+            {/* Close Button */}
+            <button
+              onClick={() => setShowFeedback(false)}
+              style={{
+                position: "absolute",
+                top: "-40px",
+                right: "0",
+                background: "transparent",
+                border: "none",
+                color: "#fff",
+                fontSize: "20px",
+                cursor: "pointer",
+              }}
+            >
+              ✕
+            </button>
+            <FeedbackTool />
+          </div>
+        </div>
+      )}
     </section>
   );
 };

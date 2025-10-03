@@ -174,7 +174,7 @@ const HeroSection = () => {
         <p className="hero-subtitle">
           Combining blockchain technology, zero-knowledge proofs, and AI to create 
           a revolutionary financial experience with <span className="purple">1-1.5% transaction fees</span> and 
-          <span className="cyan"> 25-40% DeFi yields</span>
+          <span className="cyan"> 10% DeFi yields</span>
         </p>
 
         <div className="hero-stats">

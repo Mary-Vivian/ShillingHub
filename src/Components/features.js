@@ -99,7 +99,7 @@ const FeaturesSection = () => {
             <p className="feature-text">
               Seamless access to decentralized finance protocols offering high APY yields, automated portfolio management, and cross-border payments.
             </p>
-            <div className="feature-note">25-40% APY yields</div>
+            <div className="feature-note">10% APY yields</div>
           </div>
         </div>
       </div>
