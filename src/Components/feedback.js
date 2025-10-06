@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import {
   ChevronRight,
@@ -10,6 +9,7 @@ import {
   Users,
   DollarSign,
 } from "lucide-react";
+import emailjs from "emailjs-com";  // 👈 Import EmailJS
 
 const FeedbackTool = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -17,7 +17,7 @@ const FeedbackTool = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Shared styles
+  // Shared styles (same as before)
   const cardStyle = {
     background: "#151f31",
     padding: "24px",
@@ -28,7 +28,7 @@ const FeedbackTool = () => {
     margin: "40px auto",
   };
 
-  const buttonStyle = (bg, hover) => ({
+  const buttonStyle = (bg) => ({
     padding: "10px 16px",
     borderRadius: "8px",
     border: "none",
@@ -176,17 +176,19 @@ const FeedbackTool = () => {
     setResponses((prev) => ({ ...prev, [key]: value }));
   };
 
+  // ✅ Updated to EmailJS
   const handleSubmit = async () => {
     setIsSubmitting(true);
     try {
-      await fetch('https://script.google.com/macros/s/AKfycbxJiOPIxrRKKLI0aOxcmHe30M_98L46WU3IbtdnXzrKUSivB1ViY2tMGtXJel3O5Ph7bA/exec '
-, {
-        method: "POST",
-        body: JSON.stringify(responses),
-        headers: { "Content-Type": "application/json" },
-      });
+      await emailjs.send(
+        "service_uqqwe6k",   
+        "template_t4dq7pf", 
+        responses,          
+        "o5g789jcTCDOEyFFH"    
+      );
       setIsSubmitted(true);
     } catch (error) {
+      console.error("EmailJS error:", error);
       alert("Error submitting feedback. Try again.");
     } finally {
       setIsSubmitting(false);
@@ -315,4 +317,3 @@ const FeedbackTool = () => {
 };
 
 export default FeedbackTool;
-

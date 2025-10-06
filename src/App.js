@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Navbar from './Components/nav';
 // import GrowthSection from './Components/growthSection';
