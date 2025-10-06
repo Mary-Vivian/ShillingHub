@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { FaInstagram, FaTwitter, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 import FeedbackTool from "./feedback"; 
+import { ArrowDown } from "lucide-react";
+
 
 const CombinedContactsCTA = () => {
   const [showFeedback, setShowFeedback] = useState(false);
@@ -131,7 +133,19 @@ const CombinedContactsCTA = () => {
           how 1.3 billion Africans interact with money. Join us in building the
           financial infrastructure for Africa's digital future.
         </p>
-
+       <p
+          style={{
+              background: "linear-gradient(to right, #a78bfa, #f472b6, #22d3ee)",
+              WebkitBackgroundClip: "text",
+              color: "transparent",
+               fontSize: "20px",
+            }}
+        >
+        "Help shape Kenya's financial future by participating in this survey"
+        </p>
+      <p> 
+        <ArrowDown size={24} style={{ marginTop: "5px", color:"#fff" }} />
+        </p>
         {/* Buttons */}
         <div
           style={{
