@@ -9,7 +9,6 @@ import {
   Users,
   DollarSign,
 } from "lucide-react";
-import emailjs from "emailjs-com";  // 👈 Import EmailJS
 
 const FeedbackTool = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -17,7 +16,7 @@ const FeedbackTool = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Shared styles (same as before)
+  // Styles
   const cardStyle = {
     background: "#151f31",
     padding: "24px",
@@ -80,6 +79,20 @@ const FeedbackTool = () => {
   // Questions
   const questions = [
     {
+      key: "user_type",
+      label: "Which best describes you?",
+      type: "select",
+      options: ["Individual", "Business owner", "Developer", "Investor", "Other"],
+      icon: <Users size={20} color="#22d3ee" />,
+    },
+    {
+      key: "transaction_frequency",
+      label: "How often do you make digital transactions?",
+      type: "select",
+      options: ["Daily", "Weekly", "Monthly", "Rarely"],
+      icon: <TrendingUp size={20} color="#f59e0b" />,
+    },
+    {
       key: "monthly_volume",
       label: "What is your typical monthly transaction volume?",
       type: "select",
@@ -90,7 +103,12 @@ const FeedbackTool = () => {
       key: "top_problems",
       label: "What are the biggest issues you face with online payments?",
       type: "checkbox",
-      options: ["High fees", "Slow transactions", "Trust/security concerns", "Poor customer support"],
+      options: [
+        "High fees",
+        "Slow transactions",
+        "Trust/security concerns",
+        "Poor customer support",
+      ],
       icon: <AlertCircle size={20} color="#ef4444" />,
     },
     {
@@ -104,14 +122,25 @@ const FeedbackTool = () => {
       key: "desired_features",
       label: "What features would make you switch to a new platform?",
       type: "checkbox",
-      options: ["Lower fees", "Faster settlement", "Better security", "Integration with my bank", "Group savings (Chama) support"],
+      options: [
+        "Lower fees",
+        "Faster settlement",
+        "Better security",
+        "Integration with my bank",
+        "Group savings (Chama) support",
+      ],
       icon: <Shield size={20} color="#22c55e" />,
     },
     {
       key: "value_proposition",
       label: "What’s most valuable in a financial service?",
       type: "select",
-      options: ["Cost savings", "Security & trust", "Ease of use", "Community/group features"],
+      options: [
+        "Cost savings",
+        "Security & trust",
+        "Ease of use",
+        "Community/group features",
+      ],
       icon: <DollarSign size={20} color="#22c55e" />,
     },
     {
@@ -130,7 +159,8 @@ const FeedbackTool = () => {
     },
     {
       key: "early_adopter",
-      label: "Would you be interested in testing our solution early and giving feedback?",
+      label:
+        "Would you be interested in testing our solution early and giving feedback?",
       type: "select",
       options: ["Yes", "Maybe", "No"],
       icon: <Users size={20} color="#6366f1" />,
@@ -139,12 +169,18 @@ const FeedbackTool = () => {
       key: "privacy_importance",
       label: "How important is financial privacy to you?",
       type: "select",
-      options: ["Not important", "Somewhat important", "Very important", "Critical"],
+      options: [
+        "Not important",
+        "Somewhat important",
+        "Very important",
+        "Critical",
+      ],
       icon: <Shield size={20} color="#94a3b8" />,
     },
     {
       key: "defi_interest",
-      label: "Would you be open to using blockchain/DeFi-based solutions if they are easier & cheaper?",
+      label:
+        "Would you be open to using blockchain/DeFi-based solutions if they are easier & cheaper?",
       type: "select",
       options: ["Yes", "Maybe", "No"],
       icon: <TrendingUp size={20} color="#f97316" />,
@@ -160,7 +196,12 @@ const FeedbackTool = () => {
       key: "chama_problems",
       label: "If yes, what problems does your Chama face?",
       type: "checkbox",
-      options: ["Transparency", "Trust", "Collection difficulties", "Access to loans"],
+      options: [
+        "Transparency",
+        "Trust",
+        "Collection difficulties",
+        "Access to loans",
+      ],
       icon: <Users size={20} color="#db2777" />,
     },
     {
@@ -172,23 +213,49 @@ const FeedbackTool = () => {
     },
   ];
 
+  // Handle field change
   const handleChange = (key, value) => {
     setResponses((prev) => ({ ...prev, [key]: value }));
   };
 
-  // ✅ Updated to EmailJS
+  // ✅ Updated handleSubmit for NocodeAPI
   const handleSubmit = async () => {
     setIsSubmitting(true);
     try {
-      await emailjs.send(
-        "service_uqqwe6k",   
-        "template_t4dq7pf", 
-        responses,          
-        "o5g789jcTCDOEyFFH"    
+      const response = await fetch(
+        "https://v1.nocodeapi.com/vivianmuthoni/google_sheets/JBlkoUkHBlrhvXPp?tabId=Sheet1",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify([
+            [
+              responses.user_type || "",
+              responses.transaction_frequency || "",
+              responses.monthly_volume || "",
+              (responses.top_problems || []).join("; "),
+              responses.problem_intensity || "",
+              (responses.desired_features || []).join("; "),
+              responses.value_proposition || "",
+              (responses.switching_barriers || []).join("; "),
+              responses.willingness_to_pay || "",
+              responses.early_adopter || "",
+              responses.privacy_importance || "",
+              responses.defi_interest || "",
+              responses.chama_user || "",
+              (responses.chama_problems || []).join("; "),
+              responses.contact_email || "",
+            ],
+          ]),
+        }
       );
-      setIsSubmitted(true);
+
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        alert("Failed to send feedback.");
+      }
     } catch (error) {
-      console.error("EmailJS error:", error);
+      console.error("Error submitting:", error);
       alert("Error submitting feedback. Try again.");
     } finally {
       setIsSubmitting(false);
@@ -206,7 +273,9 @@ const FeedbackTool = () => {
           >
             <option value="">Select one</option>
             {q.options.map((opt) => (
-              <option key={opt} value={opt}>{opt}</option>
+              <option key={opt} value={opt}>
+                {opt}
+              </option>
             ))}
           </select>
         );
@@ -223,7 +292,10 @@ const FeedbackTool = () => {
                     if (e.target.checked) {
                       handleChange(q.key, [...prev, opt]);
                     } else {
-                      handleChange(q.key, prev.filter((item) => item !== opt));
+                      handleChange(
+                        q.key,
+                        prev.filter((item) => item !== opt)
+                      );
                     }
                   }}
                 />
@@ -247,10 +319,15 @@ const FeedbackTool = () => {
     }
   };
 
+  // Submitted View
   if (isSubmitted) {
     return (
       <div style={{ ...cardStyle, textAlign: "center" }}>
-        <CheckCircle size={48} color="#22c55e" style={{ margin: "0 auto 16px" }} />
+        <CheckCircle
+          size={48}
+          color="#22c55e"
+          style={{ margin: "0 auto 16px" }}
+        />
         <h2 style={{ fontSize: "20px", fontWeight: "600", marginBottom: "8px" }}>
           Thank you for your feedback!
         </h2>
@@ -282,7 +359,13 @@ const FeedbackTool = () => {
 
       {renderQuestion(q)}
 
-      <div style={{ display: "flex", justifyContent: "space-between", marginTop: "24px" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          marginTop: "24px",
+        }}
+      >
         <button
           style={{ ...buttonStyle("#475569"), opacity: currentStep === 0 ? 0.5 : 1 }}
           onClick={() => setCurrentStep((s) => s - 1)}
@@ -309,7 +392,14 @@ const FeedbackTool = () => {
         )}
       </div>
 
-      <div style={{ marginTop: "16px", fontSize: "14px", color: "#9ca3af", textAlign: "center" }}>
+      <div
+        style={{
+          marginTop: "16px",
+          fontSize: "14px",
+          color: "#9ca3af",
+          textAlign: "center",
+        }}
+      >
         Step {currentStep + 1} of {questions.length}
       </div>
     </div>
